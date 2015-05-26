@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="filehostingservice.presentation.Controller">
+   <children>
+      <ProgressIndicator fx:id="progressBar" layoutX="244.0" layoutY="157.0" prefHeight="121.0" prefWidth="112.0" progress="0.0" visible="false" />
+      <ToolBar fx:id="toolBar" prefHeight="9.0" prefWidth="600.0" visible="false">
+        <items>
+            <Button fx:id="myAccountButton" mnemonicParsing="false" text="My account" />
+          <Button fx:id="myFilesButton" mnemonicParsing="false" text="My files" />
+            <Button fx:id="uploadFileButton" mnemonicParsing="false" text="Upload file" />
+            <Button fx:id="downloadFilesButton" mnemonicParsing="false" text="Download files" />
+            <Button fx:id="usersButton" mnemonicParsing="false" text="Users" />
+        </items>
+      </ToolBar>
+      <Pane fx:id="loginPane" prefHeight="435.0" prefWidth="600.0" visible="false">
+         <children>
+            <TextField fx:id="loginTextField" layoutX="181.0" layoutY="305.0" prefHeight="25.0" prefWidth="237.0" promptText="login" />
+            <ImageView fx:id="icon" fitHeight="224.0" fitWidth="292.0" layoutX="187.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="loginButton" layoutX="307.0" layoutY="380.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Login" />
+            <Button fx:id="createNewAccountButton" layoutX="181.0" layoutY="380.0" mnemonicParsing="false" text="Create new account" />
+            <PasswordField fx:id="passwordTextField" layoutX="181.0" layoutY="342.0" prefHeight="25.0" prefWidth="237.0" promptText="password" />
+         </children>
+      </Pane>
+      <Pane fx:id="myAccountPane" layoutY="35.0" prefHeight="400.0" prefWidth="600.0" visible="false">
+         <children>
+            <TextField fx:id="accountLoginTextField" layoutX="156.0" layoutY="156.0" prefHeight="29.0" prefWidth="281.0" promptText="login" />
+            <Label layoutX="242.0" layoutY="120.0" text="You can make change :" />
+            <Label layoutX="111.0" layoutY="162.0" text="Login :" />
+            <Label layoutX="90.0" layoutY="205.0" text="Password :" />
+            <Button fx:id="saveChangesButton" layoutX="342.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Save changes" />
+            <Button fx:id="deleteAccountButton" layoutX="156.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Delete account" />
+            <Label layoutX="263.0" layoutY="23.0" text="Your statistics :" />
+            <Label fx:id="accountUploadsLabel" layoutX="156.0" layoutY="69.0" text="Uploads :" />
+            <Label fx:id="accountDownloadsLabel" layoutX="357.0" layoutY="69.0" text="Downloads :" />
+            <PasswordField fx:id="accountPasswordTextField" layoutX="156.0" layoutY="200.0" prefHeight="29.0" prefWidth="281.0" />
+            <Button fx:id="logoutButton" layoutX="263.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" text="Logout" />
+         </children>
+      </Pane>
+      <Pane fx:id="myFilesPane" layoutY="35.0" prefHeight="400.0" prefWidth="600.0" visible="false">
+         <children>
+            <TableView fx:id="myFilesTable" prefHeight="400.0" prefWidth="600.0">
+              <columns>
+                <TableColumn fx:id="myFilesTitleColumn" prefWidth="75.0" text="Title" />
+                <TableColumn fx:id="myFilesCategoryColumn" prefWidth="75.0" text="Category" />
+                  <TableColumn fx:id="myFilesSizeColumn" prefWidth="75.0" text="Size" />
+                  <TableColumn fx:id="myFilesExtensionColumn" prefWidth="75.0" text="Extension" />
+                  <TableColumn fx:id="myFilesUploadDateColumn" prefWidth="75.0" text="Upload date" />
+                  <TableColumn fx:id="myFilesDescriptionColumn" prefWidth="75.0" text="Description" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane fx:id="uploadFilePane" layoutY="35.0" prefHeight="400.0" prefWidth="600.0" visible="false">
+         <children>
+            <TextField fx:id="uploadFileTitleTextField" layoutX="196.0" layoutY="46.0" prefHeight="29.0" prefWidth="219.0" promptText="Title" />
+            <ComboBox fx:id="uploadFileCategoryComboBox" layoutX="196.0" layoutY="86.0" prefHeight="25.0" prefWidth="219.0" promptText="Category" />
+            <TextArea fx:id="uploadFileDescriptionTextArea" layoutX="196.0" layoutY="122.0" prefHeight="230.0" prefWidth="219.0" promptText="Description" />
+            <Button fx:id="saveFileButton" layoutX="196.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="219.0" text="Save file" />
+            <Label layoutX="239.0" layoutY="14.0" text="Fill out the fields below :" />
+         </children>
+      </Pane>
+      <Pane fx:id="downloadFilesPane" layoutY="35.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="searchButton" layoutX="450.0" layoutY="4.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="52.0" text="Search" />
+            <ListView fx:id="dropList" layoutX="4.0" layoutY="36.0" prefHeight="79.0" prefWidth="219.0" />
+            <ComboBox fx:id="filterComboBox" layoutX="227.0" layoutY="4.0" prefHeight="29.0" prefWidth="219.0" promptText="Filter" />
+            <TextField fx:id="searchKeyTextField" layoutX="4.0" layoutY="4.0" prefHeight="29.0" prefWidth="219.0" promptText="Keyword" />
+            <CheckBox fx:id="autocompleteModeCheckBox" layoutX="524.0" layoutY="10.0" mnemonicParsing="false" text="AUTO" />
+            <TableView fx:id="downloadFilesTable" layoutY="37.0" prefHeight="363.0" prefWidth="600.0">
+              <columns>
+                <TableColumn fx:id="downloadFilesTitleColumn" prefWidth="75.0" text="Title" />
+                <TableColumn fx:id="downloadFilesCategoryColumn" prefWidth="75.0" text="Category" />
+                  <TableColumn fx:id="downloadFilesSizeColumn" prefWidth="75.0" text="Size" />
+                  <TableColumn fx:id="downloadFilesExtensionColumn" prefWidth="75.0" text="Extension" />
+                  <TableColumn fx:id="downloadFilesUserColumn" prefWidth="75.0" text="User" />
+                  <TableColumn fx:id="downloadFilesUploadDateColumn" prefWidth="98.0" text="Upload date" />
+                  <TableColumn fx:id="downloadFilesDescriptionColumn" prefWidth="126.0" text="Description" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane fx:id="usersPane" layoutY="35.0" prefHeight="400.0" prefWidth="600.0" visible="false">
+         <children>
+            <TableView fx:id="usersTable" prefHeight="400.0" prefWidth="600.0">
+              <columns>
+                <TableColumn fx:id="usersLoginColumn" prefWidth="75.0" text="Login" />
+                  <TableColumn fx:id="usersUploadsColumn" prefWidth="75.0" text="Uploads" />
+                <TableColumn fx:id="usersDownloadsColumn" prefWidth="75.0" text="Downloads" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
